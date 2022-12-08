@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <QtMath>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,13 +23,13 @@ void MainWindow::on_pushButton_Calculate_clicked()
 
     int d = qPow(b, 2) - 4*a*c;
 
-    if(d < 0 || (a == 0 && b == 0 && c == 0) || (b == 0 && (-c / a < 0)))
+    if(d < 0 || (a == 0 && b == 0 && c == 0) || (b == 0 && a != 0 && ((-c / a) < 0)))
     {
         ui->textEdit_result->setText("Нет корней");
     }
     else if (d == 0)
     {
-        ui->textEdit_result->setText("x = " + QString::number(-b / 2*a));
+        ui->textEdit_result->setText("x = " + QString::number(-b / (2 * a)));
     }
     else if (a == 0)
     {
@@ -55,9 +56,9 @@ void MainWindow::on_pushButton_Calculate_clicked()
     else
     {
         ui->textEdit_result->setText("x1 = " +
-                                     QString::number((-b - qSqrt(d)) / 2 * a) +
+                                     QString::number((-b - qSqrt(d)) / (2 * a)) +
                                      ", x2 = " +
-                                     QString::number((-b + qSqrt(d)) / 2 * a)
+                                     QString::number((-b + qSqrt(d)) / (2 * a))
                                      );
     }
 }
