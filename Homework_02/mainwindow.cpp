@@ -75,35 +75,38 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    model->removeRow(ui->listView->currentIndex().row());
+    if (ui->listView->selectionModel()->selectedIndexes().size())
+    {
+        model->removeRow(ui->listView->selectionModel()->selectedIndexes()[0].row());
+    }
 }
 
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    int newRow = ui->listView->currentIndex().row();
+    int newRow = ui->listView->selectionModel()->selectedIndexes()[0].row();
 
     if(newRow != 0)
     {
-        newRow = ui->listView->currentIndex().row() - 1;
+        newRow = ui->listView->selectionModel()->selectedIndexes()[0].row() - 1;
     }
 
-    QList<QStandardItem *> lst = model->takeRow(ui->listView->currentIndex().row());
+    QList<QStandardItem *> lst = model->takeRow(ui->listView->selectionModel()->selectedIndexes()[0].row());
     model->insertRow(newRow, lst);
-    ui->listView->setCurrentIndex(model->index(newRow, ui->listView->currentIndex().column()));
+    ui->listView->setCurrentIndex(model->index(newRow, ui->listView->selectionModel()->selectedIndexes()[0].column()));
 }
 
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    int newRow = ui->listView->currentIndex().row();
+    int newRow = ui->listView->selectionModel()->selectedIndexes()[0].row();
 
     if(newRow < model->rowCount() - 1)
     {
-        newRow = ui->listView->currentIndex().row() + 1;
+        newRow = ui->listView->selectionModel()->selectedIndexes()[0].row() + 1;
     }
 
-    QList<QStandardItem *> lst = model->takeRow(ui->listView->currentIndex().row());
+    QList<QStandardItem *> lst = model->takeRow(ui->listView->selectionModel()->selectedIndexes()[0].row());
     model->insertRow(newRow, lst);
     ui->listView->setCurrentIndex(model->index(newRow, ui->listView->currentIndex().column()));
 }
