@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.2, 2022-12-16T00:18:18. -->
+<!-- Written by QtCreator 6.0.2, 2022-12-17T04:21:33. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -106,7 +106,7 @@
 -DCMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}
 -DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\gb_education\GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP\build-Homework_02-Desktop_Qt_6_2_3_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\gb_education\GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP\build-Text_editor-Desktop_Qt_6_2_3_MinGW_64_bit-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -152,7 +152,7 @@
 -DCMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}
 -DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\gb_education\GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP\build-Homework_02-Desktop_Qt_6_2_3_MinGW_64_bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\gb_education\GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP\build-Text_editor-Desktop_Qt_6_2_3_MinGW_64_bit-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -196,7 +196,7 @@
 -DCMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}
 -DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\gb_education\GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP\build-Homework_02-Desktop_Qt_6_2_3_MinGW_64_bit-RelWithDebInfo</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\gb_education\GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP\build-Text_editor-Desktop_Qt_6_2_3_MinGW_64_bit-RelWithDebInfo</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -240,7 +240,7 @@
 -DCMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}
 -DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\gb_education\GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP\build-Homework_02-Desktop_Qt_6_2_3_MinGW_64_bit-MinSizeRel</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\gb_education\GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP\build-Text_editor-Desktop_Qt_6_2_3_MinGW_64_bit-MinSizeRel</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -296,16 +296,16 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Homework_02</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.Homework_02</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Homework_02</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Text_editor</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.Text_editor</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Text_editor</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseTerminal">false</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/gb_education/GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP/build-Homework_02-Desktop_Qt_6_2_3_MinGW_64_bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/gb_education/GB_DEVELOPMENT_OF_PROGRAMS_WITH_A_GUI_IN_CPP/build-Text_editor-Desktop_Qt_6_2_3_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
