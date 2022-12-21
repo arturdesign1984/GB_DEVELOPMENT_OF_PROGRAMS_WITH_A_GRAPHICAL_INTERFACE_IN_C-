@@ -5,6 +5,7 @@
 > [Домашняя работа № 01](Homework_01)</br>
 > [Домашняя работа № 02](Homework_02)</br>
 > Домашняя работа № 03 [Part1](Text_editor) [Part2](Homework_03) </br>
+> [Домашняя работа № 04](Text_editor)</br>
 
 -------------------------------
 ![Screenshot](QT_Logo.png "QT C++")
