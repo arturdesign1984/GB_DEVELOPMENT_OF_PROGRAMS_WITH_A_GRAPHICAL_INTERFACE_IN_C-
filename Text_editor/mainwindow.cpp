@@ -15,6 +15,24 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     createConnactions();
     Shortcuts();
+
+    whiteTheme = "QMenu, QMenu::item, QMenuBar { background-color: white; color: black }"
+                 "QMainWindow, QLabel { background-color: #f3f3f3; color: black }"
+                 "QTextEdit, QPushButton, QLineEdit, QComboBox { background-color: white; color: black }"
+                 "QMenuBar::item:selected, QMenu::item:selected { background-color: lightblue }"
+                 "QStatusBar { background-color: white; }"
+                 "QLineEdit, QTextEdit { border: 2px solid lightgray; }"
+                 "QComboBox QAbstractItemView { border: 2px solid lightgray; background-color: white; color: black }";
+
+    darkTheme = "QMenu, QMenu::item, QMenuBar { background-color: #333333; color: #dbdbdb }"
+                "QMainWindow, QLabel { background-color: #232323; color: #cfbfad }"
+                "QTextEdit, QPushButton, QLineEdit, QComboBox { background-color: #333333; color: #cfbfad }"
+                "QMenuBar::item:selected, QMenu::item:selected { background-color: #265f99 }"
+                "QStatusBar { background-color: #333333; }"
+                "QLineEdit, QTextEdit { border: 2px solid #232323; }"
+                "QComboBox QAbstractItemView { border: 2px solid #232323; background-color: #333333; color: #dbdbdb }";
+
+//    qApp->setStyleSheet(whiteTheme);
 }
 
 MainWindow::~MainWindow()
@@ -30,9 +48,11 @@ void MainWindow::createConnactions()
     connect(ui->actionSave_As, &QAction::triggered, this, &MainWindow::on_actionSave_as_triggered);
     connect(ui->actionSave, &QAction::triggered, this, &MainWindow::on_actionSave_triggered);
     connect(ui->actionExit, &QAction::toggled, this, &MainWindow::on_actionExit_triggered);
-    connect(ui->actionAbout, &QAction::toggled, this, &MainWindow::on_actionInfo_triggered);
+    connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::on_actionInfo_triggered);
     connect(ui->actionen_EN, &QAction::triggered, this, &MainWindow::change_lang_to_en);
     connect(ui->actionru_RU, &QAction::triggered, this, &MainWindow::change_lang_to_ru);
+    connect(ui->actionWhite, &QAction::triggered, this, &MainWindow::on_actionWhite_triggered);
+    connect(ui->actionDark, &QAction::triggered, this, &MainWindow::on_actionDark_triggered);
 
 }
 
@@ -203,5 +223,17 @@ void MainWindow::on_pushButton_clicked()
     {
         shortcuts[ui->comboBox->itemText(index)]->setShortcut(QKeySequence(ui->lineEdit->text()));
     }
+}
+
+
+void MainWindow::on_actionWhite_triggered()
+{
+    qApp->setStyleSheet(whiteTheme);
+}
+
+
+void MainWindow::on_actionDark_triggered()
+{
+    qApp->setStyleSheet(darkTheme);
 }
 

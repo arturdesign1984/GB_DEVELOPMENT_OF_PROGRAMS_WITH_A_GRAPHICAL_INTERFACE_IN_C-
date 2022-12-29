@@ -20,7 +20,7 @@
       <x>10</x>
       <y>40</y>
       <width>781</width>
-      <height>511</height>
+      <height>491</height>
      </rect>
     </property>
    </widget>
@@ -107,9 +107,17 @@
     <addaction name="actionen_EN"/>
     <addaction name="actionru_RU"/>
    </widget>
+   <widget class="QMenu" name="menuThemes">
+    <property name="title">
+     <string>Themes</string>
+    </property>
+    <addaction name="actionWhite"/>
+    <addaction name="actionDark"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
    <addaction name="menuLang"/>
+   <addaction name="menuThemes"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -181,6 +189,16 @@
   <action name="actionChange">
    <property name="text">
     <string>Change</string>
+   </property>
+  </action>
+  <action name="actionWhite">
+   <property name="text">
+    <string>White</string>
+   </property>
+  </action>
+  <action name="actionDark">
+   <property name="text">
+    <string>Dark</string>
    </property>
   </action>
  </widget>

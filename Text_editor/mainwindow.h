@@ -38,8 +38,11 @@ private slots:
     void on_actionOpen_readonly_triggered();
 
     void on_comboBox_activated(int index);
-
     void on_pushButton_clicked();
+
+    void on_actionWhite_triggered();
+
+    void on_actionDark_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -49,5 +52,6 @@ private:
     QMap<QString, QAction*> shortcuts;
     void Shortcuts();
     void createConnactions();
+    QString whiteTheme, darkTheme;
 };
 #endif // MAINWINDOW_H
