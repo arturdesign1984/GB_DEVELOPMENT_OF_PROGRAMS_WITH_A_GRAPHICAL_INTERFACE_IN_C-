@@ -10,6 +10,7 @@
 #include <QShortcut>
 #include <QMap>
 #include <QDialog>
+#include "navigatefilesysytem.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,13 +39,16 @@ private slots:
     void on_actionOpen_readonly_triggered();
 
     void on_comboBox_activated(int index);
+
     void on_pushButton_clicked();
-
     void on_actionWhite_triggered();
-
     void on_actionDark_triggered();
 
+    void on_actionOpenPath_triggered(QString filePath);
+
 private:
+
+    NavigateFileSysytem *nfs;
     Ui::MainWindow *ui;
     QFile file;
     QTranslator translator;

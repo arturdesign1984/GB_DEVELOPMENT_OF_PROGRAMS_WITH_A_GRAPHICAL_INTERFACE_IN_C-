@@ -2,7 +2,7 @@
 
 #include <QApplication>
 #include <QComboBox>
-//#include <QTranslator>
+
 
 int main(int argc, char *argv[])
 {

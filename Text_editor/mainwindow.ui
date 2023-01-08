@@ -17,9 +17,9 @@
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>280</x>
       <y>40</y>
-      <width>781</width>
+      <width>511</width>
       <height>491</height>
      </rect>
     </property>
@@ -68,6 +68,19 @@
     </property>
     <property name="text">
      <string>Shortcuts:</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>30</y>
+      <width>271</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
     </property>
    </widget>
   </widget>

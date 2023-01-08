@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
         QCoreApplication::installTranslator(&translator);
     }
     ui->setupUi(this);
+    nfs = new NavigateFileSysytem(ui->widget);
+
     createConnactions();
     Shortcuts();
 
@@ -22,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
                  "QMenuBar::item:selected, QMenu::item:selected { background-color: lightblue }"
                  "QStatusBar { background-color: white; }"
                  "QLineEdit, QTextEdit { border: 2px solid lightgray; }"
-                 "QComboBox QAbstractItemView { border: 2px solid lightgray; background-color: white; color: black }";
+                 "QComboBox QAbstractItemView, QWidget QTreeView, QScrollBar:vertical, QScrollBar:horizontal { border: 2px solid lightgray; background-color: white; color: black }";
 
     darkTheme = "QMenu, QMenu::item, QMenuBar { background-color: #333333; color: #dbdbdb }"
                 "QMainWindow, QLabel { background-color: #232323; color: #cfbfad }"
@@ -30,9 +32,9 @@ MainWindow::MainWindow(QWidget *parent)
                 "QMenuBar::item:selected, QMenu::item:selected { background-color: #265f99 }"
                 "QStatusBar { background-color: #333333; }"
                 "QLineEdit, QTextEdit { border: 2px solid #232323; }"
-                "QComboBox QAbstractItemView { border: 2px solid #232323; background-color: #333333; color: #dbdbdb }";
+                "QComboBox QAbstractItemView, QWidget QTreeView, QScrollBar:vertical, QScrollBar:horizontal { border: 2px solid #232323; background-color: #333333; color: #dbdbdb }";
 
-//    qApp->setStyleSheet(whiteTheme);
+//    qApp->setStyleSheet(darkTheme);
 }
 
 MainWindow::~MainWindow()
@@ -54,6 +56,7 @@ void MainWindow::createConnactions()
     connect(ui->actionWhite, &QAction::triggered, this, &MainWindow::on_actionWhite_triggered);
     connect(ui->actionDark, &QAction::triggered, this, &MainWindow::on_actionDark_triggered);
 
+    connect(nfs, SIGNAL(on_file_doubleClicked(QString)), this, SLOT(on_actionOpenPath_triggered(QString)));
 }
 
 void MainWindow::keyReleaseEvent(QKeyEvent *event)
@@ -235,5 +238,20 @@ void MainWindow::on_actionWhite_triggered()
 void MainWindow::on_actionDark_triggered()
 {
     qApp->setStyleSheet(darkTheme);
+}
+
+void MainWindow::on_actionOpenPath_triggered(QString filePath)
+{
+    ui->textEdit->setReadOnly(false);
+
+    file.setFileName(filePath);
+    if(file.open(QIODevice::ReadOnly))
+    {
+        ui->textEdit->setText(file.readAll());
+        file.close();
+    } else
+    {
+        qDebug() << tr("Failed to open file ") << filePath << ".\n";
+    }
 }
 
