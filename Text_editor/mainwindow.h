@@ -10,6 +10,8 @@
 #include <QShortcut>
 #include <QMap>
 #include <QDialog>
+#include <QPrinter>
+#include <QPrintDialog>
 #include "navigatefilesysytem.h"
 
 QT_BEGIN_NAMESPACE
@@ -45,6 +47,8 @@ private slots:
     void on_actionDark_triggered();
 
     void on_actionOpenPath_triggered(QString filePath);
+
+    void on_pushButton_Print_clicked();
 
 private:
 

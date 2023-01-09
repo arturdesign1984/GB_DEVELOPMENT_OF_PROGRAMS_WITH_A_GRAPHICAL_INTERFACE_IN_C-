@@ -255,3 +255,14 @@ void MainWindow::on_actionOpenPath_triggered(QString filePath)
     }
 }
 
+
+void MainWindow::on_pushButton_Print_clicked()
+{
+    QPrinter printer;
+    QPrintDialog dlg(&printer, this);
+    dlg.setWindowTitle(tr("Print"));
+    if (dlg.exec() != QDialog::Accepted)
+    return;
+    ui->textEdit->print(&printer);
+}
+

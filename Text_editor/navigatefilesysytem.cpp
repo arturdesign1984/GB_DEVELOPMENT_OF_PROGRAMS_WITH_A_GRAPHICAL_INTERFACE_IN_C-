@@ -66,8 +66,8 @@ void NavigateFileSysytem::on_tree_doubleClicked(const QModelIndex &index)
     }
     if(fileInfo.isFile())
     {
-        viewPath->setText(dir.absolutePath() + '/' + fileInfo.fileName());
-        emit on_file_doubleClicked(viewPath->text());
+        viewPath->setText(dir.absolutePath());
+        emit on_file_doubleClicked(viewPath->text() + '/' + fileInfo.fileName());
     }
 }
 
