@@ -34,7 +34,6 @@ MainWindow::MainWindow(QWidget *parent)
                 "QLineEdit, QTextEdit { border: 2px solid #232323; }"
                 "QComboBox QAbstractItemView, QWidget QTreeView, QScrollBar:vertical, QScrollBar:horizontal { border: 2px solid #232323; background-color: #333333; color: #dbdbdb }";
 
-//    qApp->setStyleSheet(darkTheme);
 }
 
 MainWindow::~MainWindow()
@@ -228,7 +227,6 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
-
 void MainWindow::on_actionWhite_triggered()
 {
     qApp->setStyleSheet(whiteTheme);
@@ -255,7 +253,6 @@ void MainWindow::on_actionOpenPath_triggered(QString filePath)
     }
 }
 
-
 void MainWindow::on_pushButton_Print_clicked()
 {
     QPrinter printer;
@@ -264,5 +261,64 @@ void MainWindow::on_pushButton_Print_clicked()
     if (dlg.exec() != QDialog::Accepted)
     return;
     ui->textEdit->print(&printer);
+}
+
+void MainWindow::getCharFormat()
+{
+    tcf = ui->textEdit->textCursor().charFormat();
+}
+
+void MainWindow::randomColorsOfFont()
+{
+    std::srand(clock());
+    QTextCharFormat textFormat;
+    textFormat.setForeground(QBrush(QColor(rand() % 256, rand() % 256, rand() % 256)));
+    textFormat.setBackground(QBrush(QColor(rand() % 256, rand() % 256, rand() % 256)));
+    ui->textEdit->textCursor().setCharFormat(textFormat);
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    randomColorsOfFont();
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    getCharFormat();
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    ui->textEdit->textCursor().setCharFormat(tcf);
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    ui->textEdit->setAlignment(Qt::AlignRight);
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->textEdit->setAlignment(Qt::AlignLeft);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    ui->textEdit->setAlignment(Qt::AlignCenter);
+}
+
+void MainWindow::on_setFont_clicked()
+{
+    QFont font = ui->textEdit->textCursor().charFormat().font();
+    QFontDialog fontDlg(font,this);
+    bool pressedOK = true;
+    font = fontDlg.getFont(&pressedOK);
+    if(pressedOK)
+    {
+        QTextCharFormat textFormat;
+        textFormat.setFont(font);
+        ui->textEdit->textCursor().setCharFormat(textFormat);
+    }
 }
 

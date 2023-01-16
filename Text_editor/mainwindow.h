@@ -12,6 +12,7 @@
 #include <QDialog>
 #include <QPrinter>
 #include <QPrintDialog>
+#include <QFontDialog>
 #include "navigatefilesysytem.h"
 
 QT_BEGIN_NAMESPACE
@@ -50,8 +51,20 @@ private slots:
 
     void on_pushButton_Print_clicked();
 
+    void randomColorsOfFont();
+    void getCharFormat();
+
+    void on_pushButton_5_clicked();
+    void on_pushButton_6_clicked();
+    void on_pushButton_7_clicked();
+    void on_pushButton_4_clicked();
+    void on_pushButton_2_clicked();
+    void on_pushButton_3_clicked();
+    void on_setFont_clicked();
+
 private:
 
+    QTextCharFormat tcf;
     NavigateFileSysytem *nfs;
     Ui::MainWindow *ui;
     QFile file;
