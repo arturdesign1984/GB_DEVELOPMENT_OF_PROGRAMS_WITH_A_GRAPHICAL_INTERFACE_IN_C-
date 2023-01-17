@@ -22,6 +22,7 @@ private:
     QRectF boundingRect() const override;
 
 private:
+    bool rotate = false;
     int x, y;
     Geometry geometry;
     QPoint bpoint;
@@ -31,7 +32,6 @@ protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
-//    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 };
 
 #endif // BLOCKSCHEME_H

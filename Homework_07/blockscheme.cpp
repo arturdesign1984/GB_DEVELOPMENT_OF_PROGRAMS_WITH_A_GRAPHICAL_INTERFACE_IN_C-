@@ -58,25 +58,40 @@ QRectF BlockScheme::boundingRect() const
         return QRectF(x, y, 200, 200);
     }
     return QRectF(x, y, 200, 100);
-
 }
 
 void BlockScheme::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    this->setCursor(QCursor(Qt::ClosedHandCursor));
-    Q_UNUSED(event);
-
+    if(event->button() == Qt::MouseButton::MiddleButton)
+    {
+        this->setCursor(QCursor(Qt::PointingHandCursor));
+        rotate = true;
+    }
+    else
+    {
+        this->setTransformOriginPoint(this->boundingRect().center());
+        this->setCursor(QCursor(Qt::SizeAllCursor));
+    }
 }
 
 void BlockScheme::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     this->setCursor(QCursor(Qt::ArrowCursor));
+    rotate = false;
     Q_UNUSED(event);
 }
 
 void BlockScheme::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    this->setPos(mapToScene(event->pos() - this->boundingRect().center()));
+    if(rotate)
+    {
+        this->setTransformOriginPoint(this->boundingRect().center());
+        this->setRotation(event->pos().ry() > 0 ?  this->rotation() + 1 : this->rotation() - 1);
+    }
+    else
+    {
+        this->setPos(mapToScene(event->pos() - this->boundingRect().center()));
+    }
 }
 
 

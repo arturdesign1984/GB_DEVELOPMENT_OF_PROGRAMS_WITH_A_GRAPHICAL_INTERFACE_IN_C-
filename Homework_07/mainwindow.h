@@ -3,6 +3,7 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QWheelEvent>
 #include "blockscheme.h"
 #include "firstscene.h"
 
@@ -18,6 +19,8 @@ private:
     FirstScene *scence;
 
 protected:
+    void wheelEvent(QWheelEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
 
