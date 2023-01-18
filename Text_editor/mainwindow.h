@@ -14,6 +14,7 @@
 #include <QPrintDialog>
 #include <QFontDialog>
 #include "navigatefilesysytem.h"
+#include "searchthread.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -54,13 +55,28 @@ private slots:
     void randomColorsOfFont();
     void getCharFormat();
 
-    void on_pushButton_5_clicked();
-    void on_pushButton_6_clicked();
-    void on_pushButton_7_clicked();
     void on_pushButton_4_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
     void on_setFont_clicked();
+
+    void on_actionCopy_format_triggered();
+
+    void on_actionPaste_format_triggered();
+
+    void on_actionRandom_colors_Selected_triggered();
+
+    void on_pushButton_Ins_Date_clicked();
+
+    void on_pushButton_Ins_Time_clicked();
+
+    void on_actionInsert_Date_triggered();
+
+    void on_actionInsert_Time_triggered();
+
+    void on_pushButton_5_clicked();
+
+    void returnSearchPath(QString);
 
 private:
 
@@ -74,5 +90,8 @@ private:
     void Shortcuts();
     void createConnactions();
     QString whiteTheme, darkTheme;
+
+    SearchThread* thread;
+    QString path;
 };
 #endif // MAINWINDOW_H

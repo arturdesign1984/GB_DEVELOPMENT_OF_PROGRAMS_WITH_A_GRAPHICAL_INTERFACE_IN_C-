@@ -20,7 +20,7 @@
       <x>280</x>
       <y>70</y>
       <width>511</width>
-      <height>461</height>
+      <height>481</height>
      </rect>
     </property>
    </widget>
@@ -74,9 +74,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>30</y>
+      <y>60</y>
       <width>271</width>
-      <height>501</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="toolTipDuration">
@@ -99,8 +99,8 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>40</y>
+      <x>650</x>
+      <y>10</y>
       <width>21</width>
       <height>24</height>
      </rect>
@@ -112,8 +112,8 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>40</y>
+      <x>680</x>
+      <y>10</y>
       <width>21</width>
       <height>24</height>
      </rect>
@@ -125,8 +125,8 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>40</y>
+      <x>710</x>
+      <y>10</y>
       <width>21</width>
       <height>24</height>
      </rect>
@@ -135,56 +135,69 @@
      <string>&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>40</y>
-      <width>111</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Random colors</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_6">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>40</y>
-      <width>101</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Copy format</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>40</y>
-      <width>101</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Paste format</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="setFont">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>40</y>
+      <x>560</x>
+      <y>10</y>
       <width>81</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
      <string>Font</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Ins_Date">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>40</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ins Date</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Ins_Time">
+    <property name="geometry">
+     <rect>
+      <x>679</x>
+      <y>40</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ins Time</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>40</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Search</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_fileName">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
@@ -231,10 +244,21 @@
     <addaction name="actionWhite"/>
     <addaction name="actionDark"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionInsert_Date"/>
+    <addaction name="actionInsert_Time"/>
+    <addaction name="actionCopy_format"/>
+    <addaction name="actionPaste_format"/>
+    <addaction name="actionRandom_colors_Selected"/>
+   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuHelp"/>
+   <addaction name="menuEdit"/>
    <addaction name="menuLang"/>
    <addaction name="menuThemes"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -316,6 +340,36 @@
   <action name="actionDark">
    <property name="text">
     <string>Dark</string>
+   </property>
+  </action>
+  <action name="actionInsert_Date">
+   <property name="text">
+    <string>Insert Date</string>
+   </property>
+  </action>
+  <action name="actionInsert_Time">
+   <property name="text">
+    <string>Insert Time</string>
+   </property>
+  </action>
+  <action name="actionCopy_format">
+   <property name="text">
+    <string>Copy format</string>
+   </property>
+  </action>
+  <action name="actionPaste_format">
+   <property name="text">
+    <string>Paste format</string>
+   </property>
+  </action>
+  <action name="actionFont">
+   <property name="text">
+    <string>Font</string>
+   </property>
+  </action>
+  <action name="actionRandom_colors_Selected">
+   <property name="text">
+    <string>Random colors Selected</string>
    </property>
   </action>
  </widget>

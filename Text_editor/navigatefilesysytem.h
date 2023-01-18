@@ -26,22 +26,20 @@ public:
     }
 
     void setNewModel(QFileSystemModel *newmodel);
-    void rebuildModel(QString str);
+    void rebuildModel(QString path);
 
 private:
     QGridLayout *gridLay;
     QTreeView *tree;
     QLineEdit *viewPath;
+    QFileSystemModel *model;
+    QString curretnPath;
 
 private slots:
     void chgDisk(int index);    // получаем индекс выбранного диска
     void goMainPath();          // Для UNIX-подобных ОС верхним уровнем является путь /
-    void goToPath(QString str);            // Переходим на выбранную папку
-    void on_tree_doubleClicked(const QModelIndex &index);
-
-private:
-    QFileSystemModel *model;
-    QString curretnPath;
+    void goToPath(QString path);            // Переходим на выбранную папку
+    void on_tree_doubleClicked(const QModelIndex &index);    
 
 signals:
     void on_file_doubleClicked(QString filePath);

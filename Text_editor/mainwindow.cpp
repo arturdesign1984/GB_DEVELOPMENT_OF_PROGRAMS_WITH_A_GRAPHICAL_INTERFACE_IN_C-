@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <QDateTime>
+#include <QTextCursor>
+#include <QThread>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
     }
     ui->setupUi(this);
     nfs = new NavigateFileSysytem(ui->widget);
+
+
 
     createConnactions();
     Shortcuts();
@@ -39,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete nfs;
 }
 
 void MainWindow::createConnactions()
@@ -277,22 +283,6 @@ void MainWindow::randomColorsOfFont()
     ui->textEdit->textCursor().setCharFormat(textFormat);
 }
 
-void MainWindow::on_pushButton_5_clicked()
-{
-    randomColorsOfFont();
-}
-
-
-void MainWindow::on_pushButton_6_clicked()
-{
-    getCharFormat();
-}
-
-void MainWindow::on_pushButton_7_clicked()
-{
-    ui->textEdit->textCursor().setCharFormat(tcf);
-}
-
 void MainWindow::on_pushButton_4_clicked()
 {
     ui->textEdit->setAlignment(Qt::AlignRight);
@@ -320,5 +310,71 @@ void MainWindow::on_setFont_clicked()
         textFormat.setFont(font);
         ui->textEdit->textCursor().setCharFormat(textFormat);
     }
+}
+
+void MainWindow::on_actionCopy_format_triggered()
+{
+    getCharFormat();
+}
+
+void MainWindow::on_actionPaste_format_triggered()
+{
+    ui->textEdit->textCursor().setCharFormat(tcf);
+}
+
+void MainWindow::on_actionRandom_colors_Selected_triggered()
+{
+    randomColorsOfFont();
+}
+
+void MainWindow::on_pushButton_Ins_Date_clicked()
+{
+    QDateTime time = QDateTime::currentDateTime();
+    QTextCursor cursor = ui->textEdit->textCursor();
+    ui->textEdit->setTextCursor(cursor);
+    cursor.insertText(' ' + time.toString("dd.MM.yyyy") + ' ');
+}
+
+void MainWindow::on_pushButton_Ins_Time_clicked()
+{
+    QDateTime time = QDateTime::currentDateTime();
+    QTextCursor cursor = ui->textEdit->textCursor();
+    ui->textEdit->setTextCursor(cursor);
+    cursor.insertText(' ' + time.toString("hh:mm:ss") + ' ');
+}
+
+void MainWindow::on_actionInsert_Date_triggered()
+{
+    QDateTime time = QDateTime::currentDateTime();
+    QTextCursor cursor = ui->textEdit->textCursor();
+    ui->textEdit->setTextCursor(cursor);
+    cursor.insertText(' ' + time.toString("dd.MM.yyyy") + ' ');
+}
+
+
+void MainWindow::on_actionInsert_Time_triggered()
+{
+    QDateTime time = QDateTime::currentDateTime();
+    QTextCursor cursor = ui->textEdit->textCursor();
+    ui->textEdit->setTextCursor(cursor);
+    cursor.insertText(' ' + time.toString("hh:mm:ss") + ' ');
+}
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    QStringList fileNames = {ui->lineEdit_fileName->text()};
+    path = QDir::cleanPath("/");
+    QDir currentDir = QDir(path);
+    thread = new SearchThread(fileNames, path, currentDir);
+    connect(thread, SIGNAL(result(QString)), this, SLOT(returnSearchPath(QString)));
+    thread->start();
+}
+
+void MainWindow::returnSearchPath(QString result)
+{
+    path = result;
+    nfs->rebuildModel("C:" + path);
+    delete thread;
 }
 

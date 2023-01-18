@@ -51,9 +51,9 @@ void NavigateFileSysytem::goMainPath()
     rebuildModel("/");
 }
 
-void NavigateFileSysytem::goToPath(QString str)
+void NavigateFileSysytem::goToPath(QString path)
 {
-    rebuildModel(str);
+    rebuildModel(path);
 }
 
 void NavigateFileSysytem::on_tree_doubleClicked(const QModelIndex &index)
@@ -62,18 +62,20 @@ void NavigateFileSysytem::on_tree_doubleClicked(const QModelIndex &index)
     QDir dir = fileInfo.dir();
     if(fileInfo.isDir())
     {
-        viewPath->setText(dir.absolutePath() + fileInfo.fileName());
+        viewPath->setText(dir.absoluteFilePath(fileInfo.fileName()));
     }
     if(fileInfo.isFile())
     {
-        viewPath->setText(dir.absolutePath());
-        emit on_file_doubleClicked(viewPath->text() + '/' + fileInfo.fileName());
+        viewPath->setText(dir.absoluteFilePath(fileInfo.fileName()));
+        emit on_file_doubleClicked(viewPath->text());
     }
 }
 
 void NavigateFileSysytem::setNewModel(QFileSystemModel *newmodel)
 {
     tree->setModel(newmodel);
+    tree->setCurrentIndex(newmodel->index(curretnPath));
+    viewPath->setText(curretnPath);
     model = newmodel;
 }
 
@@ -83,6 +85,8 @@ void NavigateFileSysytem::rebuildModel(QString str)
     QFileSystemModel *model = new QFileSystemModel(this);
     model->setFilter(QDir::Dirs | QDir::NoDotAndDotDot | QDir::Files);
     model->setRootPath("");
+
     setNewModel(model);
+
 }
 

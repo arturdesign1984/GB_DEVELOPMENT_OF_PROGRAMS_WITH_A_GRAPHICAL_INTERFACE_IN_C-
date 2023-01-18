@@ -13,11 +13,13 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    navigatefilesysytem.cpp
+    navigatefilesysytem.cpp \
+    searchthread.cpp
 
 HEADERS += \
     mainwindow.h \
-    navigatefilesysytem.h
+    navigatefilesysytem.h \
+    searchthread.h
 
 FORMS += \
     mainwindow.ui
