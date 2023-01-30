@@ -11,6 +11,7 @@
 > Домашняя работа № 07 [Part1](Text_editor) [Part2](Homework_07) </br>
 > [Домашняя работа № 08](Text_editor)</br>
 > [Домашняя работа № 09](Homework_09)</br>
+> [Домашняя работа № 10](Homework_10)</br>
 
 -------------------------------
 ![Screenshot](QT_Logo.png "QT C++")

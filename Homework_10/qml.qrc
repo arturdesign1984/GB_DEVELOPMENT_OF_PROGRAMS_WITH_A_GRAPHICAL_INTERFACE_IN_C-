@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ButtonAdd.qml</file>
+    </qresource>
+    <qresource prefix="/icons_png">
+        <file>icons_png/buttonAdd_pressed.png</file>
+        <file>icons_png/buttonAdd_released.png</file>
+    </qresource>
+</RCC>
