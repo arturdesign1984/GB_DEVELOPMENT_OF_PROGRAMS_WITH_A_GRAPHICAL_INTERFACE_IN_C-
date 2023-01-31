@@ -30,7 +30,7 @@ Window {
         width: buttonAdd.height*763/300
         id: buttonAdd
         text: qsTr("Добавить")
-        onClicked: (tf1.text == "") ? (statusLine1.text = "Введите значение") : (tf2.text == "") ? (statusLine2.text = "Введите значение") : (tf3.text == "") ? (statusLine3.text = "Введите значение") : (parseInt(tf3.text) > 10) ? (statusLine3.text = "Значение больше 10") : _tascs.addTasc(tf1.text + " - " + tf2.text + " - " + tf3.text)
+        onClicked: (tf1.text == "") ? (statusLine1.text = "Введите значение") : (tf2.text == "") ? (statusLine2.text = "Введите значение") : (tf3.text == "") ? (statusLine3.text = "Введите значение") : (parseInt(tf3.text) > 10) ? (statusLine3.text = "Значение больше 10") : (_tascs.addTasc(tf1.text + " - " + tf2.text + " - " + tf3.text) & (numOfTascs.text = "Всего задач: " + _tascs.getTascsCount()))
     }
     ButtonAdd
     {
@@ -48,7 +48,7 @@ Window {
         height: 30
         width: buttonQuit.height*763/300
         text: qsTr("Открыть")
-        onClicked: _tascs.save_as()
+        onClicked: _tascs.open() & (numOfTascs.text = "Всего задач: " + _tascs.getTascsCount())
     }
     Text
     {

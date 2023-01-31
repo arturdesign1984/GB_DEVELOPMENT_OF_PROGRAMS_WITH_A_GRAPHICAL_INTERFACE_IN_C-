@@ -131,6 +131,14 @@ void Tascs::open()
         tascs = (file.readAll());
         file.close();
         lastUsedFile = fileName;
+        numberOfTascs = 0;
+        for(auto i : tascs)
+        {
+            if(i == '\n')
+            {
+                ++numberOfTascs;
+            }
+        }
     } else
     {
         qDebug() << "Failed to open file " << fileName << ".\n";
