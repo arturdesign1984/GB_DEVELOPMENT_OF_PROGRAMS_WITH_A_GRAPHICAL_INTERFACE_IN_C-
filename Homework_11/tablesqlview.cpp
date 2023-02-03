@@ -74,9 +74,9 @@ void TableSQLView::ViewTascs()
 int TableSQLView::GetCount()
 {
     QSqlQuery query;
-    QString command = "SELECT id FROM " + currentTableName + " ;";
+    QString command = "SELECT COUNT (*) FROM " + currentTableName + " ;";
     query.exec(command);
-    QSqlRecord rec = query.record();
-    query.last();
-    return query.value(rec.indexOf("id")).toInt();
+    query.first();
+    return query.value(0).toInt();;
+
 }
